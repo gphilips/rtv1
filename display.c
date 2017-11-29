@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector_op2.c                                       :+:      :+:    :+:   */
+/*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gphilips <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/29 17:09:43 by gphilips          #+#    #+#             */
-/*   Updated: 2017/11/29 17:09:44 by gphilips         ###   ########.fr       */
+/*   Created: 2017/11/29 18:10:52 by gphilips          #+#    #+#             */
+/*   Updated: 2017/11/29 18:27:27 by gphilips         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rtv1.h"
 
-double	dot(t_vec *v1, t_vec *v2)
+static void	display_cam_info(t_env *e)
 {
-	double	ret;
-
-	ret = (v1->x * v2->x) + (v1->y * v2->y) + (v1->z * v2->z);
-	return (ret);
+	mlx_string_put(e->mlx.mlx, e->mlx.win, 20, 120, 0x000000, ft_itoa(e->cam.pos.x));
+	mlx_string_put(e->mlx.mlx, e->mlx.win, 90, 120, 0x000000, ft_itoa(e->cam.pos.y));
+	mlx_string_put(e->mlx.mlx, e->mlx.win, 150, 120, 0x000000, ft_itoa(e->cam.pos.z));
 }
 
-
-void	normalize(t_vec *v1)
+void	display_info(t_env *e)
 {
-	double	norm;
-
-	norm = 1.0 / sqrtf(v1->x * v1->x + v1->y * v1->y + v1->z * v1->z);
-	v1->x = v1->x * norm;
-	v1->y = v1->y * norm;
-	v1->z = v1->z * norm;
+	display_cam_info(e);
 }

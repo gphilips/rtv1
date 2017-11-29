@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gphilips <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/11/29 17:09:31 by gphilips          #+#    #+#             */
+/*   Updated: 2017/11/29 18:18:39 by gphilips         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "rtv1.h"
 
 int				error(char *str)
@@ -22,11 +34,15 @@ static char		**init_tab(void)
 
 static void		*init_env(t_env *e)
 {
+	int		w;
+	int		h;
+
 	SAFEMALL((e->mlx.mlx = mlx_init()));
 	SAFEMALL((e->mlx.win = mlx_new_window(e->mlx.mlx, WIDTH, HEIGHT, "Rtv1")));
 	SAFEMALL((e->mlx.img = mlx_new_image(e->mlx.mlx, WIDTH, HEIGHT)));
 	e->mlx.data = mlx_get_data_addr(e->mlx.img, &(e->mlx.bpp),
 						&(e->mlx.sl), &(e->mlx.endian));
+	SAFEMALL((e->mlx.img_tex = mlx_xpm_file_to_image(e->mlx.mlx, "./scenes/raytracer.xpm", &w, &h)));
 	SAFEMALL((e->tab = init_tab()));
 	e->hit_obj = NULL;
 	e->aa = 1.0;
@@ -43,6 +59,8 @@ void		put_image(t_env *e)
 {
 	mlx_clear_window(e->mlx.mlx, e->mlx.win);
 	mlx_put_image_to_window(e->mlx.mlx, e->mlx.win, e->mlx.img, 0, 0);
+	mlx_put_image_to_window(e->mlx.mlx, e->mlx.win, e->mlx.img_tex, 0, 0);
+	display_info(e);
 }
 
 int				main(int argc, char **argv)

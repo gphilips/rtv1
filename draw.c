@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   draw.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gphilips <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/11/29 17:11:21 by gphilips          #+#    #+#             */
+/*   Updated: 2017/11/29 18:07:14 by gphilips         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "rtv1.h"
 
 static void		put_pixel(t_mlx *mlx, int x, int y, t_color color)
@@ -86,7 +98,7 @@ void			draw_screen(t_env *e)
 	y = -1;
 	while (++y < HEIGHT)
 	{
-		x = -1;
+		x = 199;
 		while (++x < WIDTH)
 		{
 			color = get_pixel_color(e, x, y);

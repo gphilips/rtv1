@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rtv1.h                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gphilips <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/11/29 17:10:40 by gphilips          #+#    #+#             */
+/*   Updated: 2017/11/29 18:18:10 by gphilips         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef RTV1_H
 # define RTV1_H
 
@@ -16,6 +28,8 @@
 # define ESC 			53
 # define KEY_P 			35
 # define KEY_L 			37
+# define KEY_PLUS 		69
+# define KEY_MOINS 		78
 # define KEY_1			18
 # define KEY_2 			19
 # define KEY_3 			20
@@ -110,6 +124,7 @@ typedef struct		s_mlx
 	void			*mlx;
 	void			*win;
 	void			*img;
+	void			*img_tex;
 	char			*data;
 	int				sl;
 	int				endian;
@@ -223,5 +238,10 @@ void				normalize(t_vec *v1);
 **	hook.c
 */
 int					key_hook(int key, t_env *e);
+
+/*
+**	display.c
+*/
+void				display_info(t_env *e);
 
 #endif
