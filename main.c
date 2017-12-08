@@ -49,9 +49,8 @@ static void		*init_env(t_env *e)
 	e->up = (t_vec){0.0, 1.0, 0.0};
 	e->obj = NULL;
 	e->is_obj_selected = 0;
-	e->help = -1;
+//	e->help = -1;
 	e->l = -1;
-	e->zoom = 2;
 	return (0);
 }
 
@@ -74,8 +73,8 @@ int				main(int argc, char **argv)
 		error("Error: something is wrong with the parsing of the scene");
 	draw_screen(&e);
 	put_image(&e);
-	// light_position(&e);
-	//mlx_mouse_hook(e.mlx.win, mouse_hook_func, &(e.mlx));
+	get_light(&e);
+	mlx_mouse_hook(e.mlx.win, mouse_hook, &(e.mlx));
 	mlx_hook(e.mlx.win, KEYPRESS, KEYPRESSMASK, key_hook, &(e.mlx));
 	mlx_loop(e.mlx.mlx);
 	return (0);

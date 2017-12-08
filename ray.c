@@ -27,11 +27,11 @@ void	current_ray(double x, double y, t_env *e, t_ray *ray)
 	ray->origin.x = e->cam.pos.x;
 	ray->origin.y = e->cam.pos.y;
 	ray->origin.z = e->cam.pos.z;
-	ray->dir.x = e->zoom * e->cam.normal.x + yindent * e->cam.up.x + xindent *
+	ray->dir.x = ZOOM * e->cam.normal.x + yindent * e->cam.up.x + xindent *
 		e->cam.right.x;
-	ray->dir.y = e->zoom * e->cam.normal.y + yindent * e->cam.up.y + xindent *
+	ray->dir.y = ZOOM * e->cam.normal.y + yindent * e->cam.up.y + xindent *
 		e->cam.right.y;
-	ray->dir.z = e->zoom * e->cam.normal.z + yindent * e->cam.up.z + xindent *
+	ray->dir.z = ZOOM * e->cam.normal.z + yindent * e->cam.up.z + xindent *
 		e->cam.right.z;
 	normalize(&ray->dir);
 }

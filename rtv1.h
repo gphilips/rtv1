@@ -30,9 +30,18 @@
 # define KEY_L 			37
 # define KEY_PLUS 		69
 # define KEY_MOINS 		78
-# define KEY_1			18
+# define KEY_LEFT		123
+# define KEY_RIGHT		124
+# define KEY_UP			125
+# define KEY_DOWN 		126
+# define KEY_R 			15
+# define KEY_1 			18
 # define KEY_2 			19
 # define KEY_3 			20
+# define KEY_4			21
+# define KEY_5			23
+# define KEY_6			22
+# define KEY_TAB		48
 # define KEYPRESS 		2
 # define KEYPRESSMASK 	(1L<<0)
 # define CLOSE 			17
@@ -48,8 +57,10 @@
 # define ADD 			1
 # define SUM 			2
 
+# define ZOOM			2
 # define MIN			0.0001
-# define MAX			8000.0
+# define MAX			1000.0
+# define MAX_LIGHT		10
 
 # define SAFEMALL(x) if (!x) return (NULL);
 # define SAFEMALL0(x) if (!x) return (0);
@@ -138,7 +149,7 @@ typedef struct		s_env
 	char			**tab;
 	t_list			*obj;
 	t_vec			n;
-	t_vec			r;
+	t_vec			right;
 	t_vec			up;
 	double			aa;
 	double			t;
@@ -146,15 +157,10 @@ typedef struct		s_env
 	t_obj			*hit_obj;
 	int				is_obj_selected;
 	int 			zoom;
-	// t_obj		*light[MAX_LIGHT];
+	t_obj			*light[MAX_LIGHT];
 	int				l;
-	// int			total_light;
-	int				help;
-	// char			*itoapos;
-	// char			*itoasize;
-	// char			*itoarot;
-	// char			*itoacampos;
-	// char			*itoacamdir;
+	int				total_light;
+	//int				help;
 }					t_env;
 
 /*
@@ -180,6 +186,7 @@ int					parser_obj(t_list **obj, const char **tab, int i);
 int					get_clrpos(t_obj *obj, const char **tab, int *i);
 int					get_size(t_obj *obj, const char **tab, int *i);
 int					get_normal(t_obj *obj, const char **tab, int *i);
+void				get_light(t_env *e);
 
 /*
 **	ft_atof.c
@@ -238,10 +245,20 @@ void				normalize(t_vec *v1);
 **	hook.c
 */
 int					key_hook(int key, t_env *e);
+int 				mouse_hook(int button, int x, int y, t_env *e);
 
 /*
 **	display.c
 */
 void				display_info(t_env *e);
 
+/*
+**	translate.c
+*/
+void				translate(int key, t_env *e);
+
+/*
+**	rotate.c
+*/
+void				rotate(int key, t_env *e);
 #endif

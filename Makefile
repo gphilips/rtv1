@@ -14,6 +14,7 @@ NAME = rtv1
 
 SRC = main.c scene.c object.c get.c ray.c draw.c closest_t.c inter.c \
 	  inter_utils.c color.c vector_op.c vector_op2.c hook.c display.c \
+	  translate.c rotate.c
 
 CFLAGS = -Wall -Werror -Wextra
 MLX = -lmlx -framework OpenGL -framework AppKit

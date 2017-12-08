@@ -14,9 +14,12 @@
 
 static void	display_cam_info(t_env *e)
 {
-	mlx_string_put(e->mlx.mlx, e->mlx.win, 20, 120, 0x000000, ft_itoa(e->cam.pos.x));
-	mlx_string_put(e->mlx.mlx, e->mlx.win, 90, 120, 0x000000, ft_itoa(e->cam.pos.y));
-	mlx_string_put(e->mlx.mlx, e->mlx.win, 150, 120, 0x000000, ft_itoa(e->cam.pos.z));
+	mlx_string_put(e->mlx.mlx, e->mlx.win, 20, 120, 0x000000,
+		ft_itoa(e->cam.pos.x));
+	mlx_string_put(e->mlx.mlx, e->mlx.win, 90, 120, 0x000000,
+		ft_itoa(e->cam.pos.y));
+	mlx_string_put(e->mlx.mlx, e->mlx.win, 150, 120, 0x000000,
+		ft_itoa(e->cam.pos.z));
 }
 
 void	display_info(t_env *e)

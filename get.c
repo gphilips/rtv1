@@ -65,3 +65,27 @@ int		get_normal(t_obj *obj, const char **tab, int *i)
 	++(*i);
 	return (1);
 }
+
+void	get_light(t_env *e)
+{
+	t_list	*tmp;
+	t_obj	*obj;
+	int		i;
+
+	tmp = e->obj;
+	e->total_light = 0;
+	while (tmp)
+	{
+		obj = (t_obj*)tmp->content;
+		i = -1;
+		if (obj && obj->name == LIGHT)
+		{
+			e->light[e->total_light] = obj;
+			e->total_light++;
+		}
+		tmp = tmp->next;
+	}
+	if (e->total_light < MAX_LIGHT)
+		e->light[e->total_light] = NULL;
+}
+
