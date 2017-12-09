@@ -6,7 +6,7 @@
 /*   By: gphilips <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 17:10:40 by gphilips          #+#    #+#             */
-/*   Updated: 2017/11/29 18:18:10 by gphilips         ###   ########.fr       */
+/*   Updated: 2017/12/09 15:52:53 by gphilips         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,12 @@
 # define KEY_1 			18
 # define KEY_2 			19
 # define KEY_3 			20
-# define KEY_4			21
-# define KEY_5			23
-# define KEY_6			22
+# define KEY_PAD_1 		83
+# define KEY_PAD_2 		84
+# define KEY_PAD_4 		86
+# define KEY_PAD_5		87
+# define KEY_PAD_7		89
+# define KEY_PAD_8		91
 # define KEY_TAB		48
 # define KEYPRESS 		2
 # define KEYPRESSMASK 	(1L<<0)
@@ -167,6 +170,7 @@ typedef struct		s_env
 **	main.c
 */
 int					error(char *str);
+void				display_instruction(void);
 void				put_image(t_env *e);
 
 /*
@@ -241,11 +245,13 @@ t_vec				vec_cross(t_vec *v1, t_vec *v2);
 */
 double				dot(t_vec *v1, t_vec *v2);
 void				normalize(t_vec *v1);
+
 /*
 **	hook.c
 */
 int					key_hook(int key, t_env *e);
 int 				mouse_hook(int button, int x, int y, t_env *e);
+int					quit(t_env *e);
 
 /*
 **	display.c

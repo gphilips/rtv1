@@ -6,7 +6,7 @@
 /*   By: gphilips <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 17:10:28 by gphilips          #+#    #+#             */
-/*   Updated: 2017/11/29 17:10:29 by gphilips         ###   ########.fr       */
+/*   Updated: 2017/12/09 15:47:07 by gphilips         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ static char	**file_to_tab(char *file)
 	i = 0;
 	while (get_next_line(fd, &line) > 0)
 		tab[i++] = line;
-	tab[i] = NULL;
 	free(line);
+	tab[i] = NULL;
 	close(fd) == -1 ? error("Error: something is wrong with the file") : 0;
 	return (tab);
 }

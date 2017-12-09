@@ -1,23 +1,35 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rotate.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gphilips <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/12/09 12:51:48 by gphilips          #+#    #+#             */
+/*   Updated: 2017/12/09 12:52:45 by gphilips         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "rtv1.h"
 
 static void	rotate_rot(int key, t_vec *nml)
 {
-	if (key == KEY_1)
+	if (key == KEY_PAD_1)
 		*nml = (t_vec){nml->x * cosf(0.13) + nml->y *
 			sinf(-0.13), nml->x * sinf(0.13) + nml->y * cosf(0.13), nml->z};
-	if (key == KEY_2)
+	if (key == KEY_PAD_2)
 		*nml = (t_vec){nml->x * cosf(-0.13) + nml->y * sinf(0.13)
 			, nml->x * sinf(-0.13) + nml->y * cosf(-0.13), nml->z};
-	if (key == KEY_3)
+	if (key == KEY_PAD_4)
 		*nml = (t_vec){nml->x * cosf(0.13) + nml->z * sinf(0.13)
 			, nml->y, nml->x * sinf(-0.13) + nml->z * cosf(0.13)};
-	if (key == KEY_4)
+	if (key == KEY_PAD_5)
 		*nml = (t_vec){nml->x * cosf(-0.13) + nml->z *
 			sinf(-0.13), nml->y, nml->x * sinf(0.13) + nml->z * cosf(-0.13)};
-	if (key == KEY_5)
+	if (key == KEY_PAD_7)
 		*nml = (t_vec){nml->x, nml->y * cosf(0.13) + nml->z *
 			sinf(-0.13), nml->y * sinf(0.13) + nml->z * cosf(0.13)};
-	if (key == KEY_6)
+	if (key == KEY_PAD_8)
 		*nml = (t_vec){nml->x, nml->y * cosf(-0.13) + nml->z *
 			sinf(0.13), nml->y * sinf(-0.13) + nml->z * cosf(-0.13)};
 }
