@@ -18,20 +18,6 @@ int				error(char *str)
 	exit(1);
 }
 
-static char		**init_tab(void)
-{
-	char	**tab;
-
-	SAFEMALL((tab = (char**)malloc(sizeof(char*) * 6)));
-	tab[0] = ft_strdup("light");
-	tab[1] = ft_strdup("plane");
-	tab[2] = ft_strdup("cylinder");
-	tab[3] = ft_strdup("cone");
-	tab[4] = ft_strdup("sphere");
-	tab[5] = NULL;
-	return (tab);
-}
-
 static void		*init_env(t_env *e)
 {
 	SAFEMALL((e->mlx.mlx = mlx_init()));
@@ -39,13 +25,11 @@ static void		*init_env(t_env *e)
 	SAFEMALL((e->mlx.img = mlx_new_image(e->mlx.mlx, WIDTH, HEIGHT)));
 	e->mlx.data = mlx_get_data_addr(e->mlx.img, &(e->mlx.bpp),
 						&(e->mlx.sl), &(e->mlx.endian));
-	SAFEMALL((e->tab = init_tab()));
 	e->hit_obj = NULL;
 	e->aa = 1.0;
 	e->up = (t_vec){0.0, 1.0, 0.0};
 	e->obj = NULL;
 	e->is_obj_selected = 0;
-//	e->help = -1;
 	e->l = -1;
 	return (0);
 }

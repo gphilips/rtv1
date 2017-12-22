@@ -11,6 +11,11 @@ content
 		clr(255 255 255)
 		pos(50 80 20)
 	}
+	light
+	{
+		clr(255 255 255)
+		pos(-69 127 51)
+	}
 	sphere
 	{
 		clr(50 100 250)

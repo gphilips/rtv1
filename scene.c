@@ -73,8 +73,11 @@ static char	**file_to_tab(char *file)
 	SAFEMALL((tab = (char**)malloc(sizeof(char*) * i + 1)));
 	i = 0;
 	while (get_next_line(fd, &line) > 0)
-		tab[i++] = line;
-	free(line);
+	{
+		tab[i++] = ft_strdup(line);
+		ft_strdel(&line);
+	}
+	ft_strdel(&line);
 	tab[i] = NULL;
 	close(fd) == -1 ? error("Error: something is wrong with the file") : 0;
 	return (tab);
@@ -91,9 +94,10 @@ int			get_scene(t_env *e, char *file)
 		return (0);
 	if (parser_obj(&e->obj, (const char**)tab, 5) == 0)
 		return (0);
-	i = 0;
-	while (tab[i])
-		free(tab[i++]);
+	i = -1;
+	while (tab[++i])
+		ft_strdel(&tab[i]);
 	free(tab);
+	tab = NULL;
 	return (1);
 }

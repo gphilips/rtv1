@@ -73,8 +73,6 @@ int			key_hook(int key, t_env *e)
 	if (key == KEY_MOINS)
 	 	e->aa /= 2;
 	 e->aa = (e->aa < 1) ? 1 : e->aa;
-	// if (key == KEY_H)
-	// 	e->help *= -1;
 	if ((key == KEY_1 || key == KEY_2 || key == KEY_3)
 		&& e->is_obj_selected == 1)
 		change_color(key, e->hit_obj);
@@ -83,8 +81,6 @@ int			key_hook(int key, t_env *e)
 		e->l = (e->l == (e->total_light - 1) ? 0 : (e->l + 1));
 		e->hit_obj = e->light[e->l];
 		e->is_obj_selected = 1;
-	//	put_image(e);
-	//	return (0);
 	}
 	translate(key, e);
 	rotate(key, e);

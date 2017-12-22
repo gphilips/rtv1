@@ -62,7 +62,7 @@
 
 # define ZOOM			2
 # define MIN			0.0001
-# define MAX			1000.0
+# define MAX			10000.0
 # define MAX_LIGHT		10
 
 # define SAFEMALL(x) if (!x) return (NULL);
@@ -163,7 +163,6 @@ typedef struct		s_env
 	t_obj			*light[MAX_LIGHT];
 	int				l;
 	int				total_light;
-	//int				help;
 }					t_env;
 
 /*
