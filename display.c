@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gphilips <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mushah <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/29 18:10:52 by gphilips          #+#    #+#             */
-/*   Updated: 2017/12/09 15:50:05 by gphilips         ###   ########.fr       */
+/*   Created: 2017/11/29 18:10:52 by mushah            #+#    #+#             */
+/*   Updated: 2018/04/05 18:46:48 by gphilips         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void			display_instruction(void)
 {
-	char 	*str[10];
+	char	*str[10];
 	int		i;
 
 	str[0] = "INSTRUCTIONS";
@@ -83,7 +83,7 @@ static void		display_clr_info(t_env *e)
 	ft_strdel(&b);
 }
 
-void		display_info(t_env *e)
+void			display_info(t_env *e)
 {
 	display_cam_info(e);
 	if (e->is_obj_selected == 1)

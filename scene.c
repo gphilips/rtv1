@@ -6,7 +6,7 @@
 /*   By: gphilips <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 17:10:28 by gphilips          #+#    #+#             */
-/*   Updated: 2017/12/09 15:47:07 by gphilips         ###   ########.fr       */
+/*   Updated: 2017/12/22 16:53:50 by gphilips         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,24 @@ static int	parser_cam(t_env *e, const char **tab)
 	return (1);
 }
 
+static int	count_lines(char *file)
+{
+	int		fd;
+	int		i;
+	char	*line;
+
+	i = 0;
+	line = NULL;
+	SAFEMALL0((fd = open(file, O_RDONLY)));
+	while (get_next_line(fd, &line) > 0)
+	{
+		i++;
+		free(line);
+	}
+	close(fd) == -1 ? error("Error: something is wrong with the file") : 0;
+	return (i);
+}
+
 static char	**file_to_tab(char *file)
 {
 	char	**tab;
@@ -60,15 +78,7 @@ static char	**file_to_tab(char *file)
 	int		i;
 	char	*line;
 
-	i = 0;
-	line = NULL;
-	SAFEMALL((fd = open(file, O_RDONLY)));
-	while (get_next_line(fd, &line) > 0)
-	{
-		i++;
-		free(line);
-	}
-	close(fd) == -1 ? error("Error: something is wrong with the file") : 0;
+	i = count_lines(file);
 	SAFEMALL((fd = open(file, O_RDONLY)));
 	SAFEMALL((tab = (char**)malloc(sizeof(char*) * i + 1)));
 	i = 0;

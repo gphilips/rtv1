@@ -6,7 +6,7 @@
 /*   By: gphilips <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 17:11:45 by gphilips          #+#    #+#             */
-/*   Updated: 2017/11/29 17:11:47 by gphilips         ###   ########.fr       */
+/*   Updated: 2017/12/22 16:16:34 by gphilips         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,3 @@ void	get_light(t_env *e)
 	if (e->total_light < MAX_LIGHT)
 		e->light[e->total_light] = NULL;
 }
-

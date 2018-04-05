@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   hook.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gphilips <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mushah <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/29 17:10:35 by gphilips          #+#    #+#             */
-/*   Updated: 2017/12/09 15:54:51 by gphilips         ###   ########.fr       */
+/*   Created: 2017/12/22 17:22:41 by mushah            #+#    #+#             */
+/*   Updated: 2018/04/05 18:47:25 by gphilips         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rtv1.h"
 
-int 		quit(t_env *e)
+int				quit(t_env *e)
 {
 	mlx_destroy_image(e->mlx.mlx, e->mlx.img);
 	mlx_destroy_image(e->mlx.mlx, e->mlx.img_tex);
@@ -21,7 +21,7 @@ int 		quit(t_env *e)
 	return (0);
 }
 
-int			clicked_obj(int x, int y, t_env *e)
+static int		clicked_obj(int x, int y, t_env *e)
 {
 	double		t;
 	t_ray		ray;
@@ -38,7 +38,7 @@ int			clicked_obj(int x, int y, t_env *e)
 	return (0);
 }
 
-int			mouse_hook(int button, int x, int y, t_env *e)
+int				mouse_hook(int button, int x, int y, t_env *e)
 {
 	if (button == 1 && x >= 0 && x < WIDTH && y >= 0 && y < HEIGHT)
 	{
@@ -54,7 +54,7 @@ int			mouse_hook(int button, int x, int y, t_env *e)
 	return (0);
 }
 
-void static	change_color(int key, t_obj *obj)
+static void		change_color(int key, t_obj *obj)
 {
 	if (key == KEY_1)
 		obj->color.r = (obj->color.r > 255) ? 0 : obj->color.r + 10;
@@ -64,15 +64,15 @@ void static	change_color(int key, t_obj *obj)
 		obj->color.b = (obj->color.b > 255) ? 0 : obj->color.b + 10;
 }
 
-int			key_hook(int key, t_env *e)
+int				key_hook(int key, t_env *e)
 {
 	if (key == ESC)
 		quit(e);
 	if (key == KEY_PLUS)
-	 	e->aa *= 2;
+		e->aa *= 2;
 	if (key == KEY_MOINS)
-	 	e->aa /= 2;
-	 e->aa = (e->aa < 1) ? 1 : e->aa;
+		e->aa /= 2;
+	e->aa = (e->aa < 1) ? 1 : e->aa;
 	if ((key == KEY_1 || key == KEY_2 || key == KEY_3)
 		&& e->is_obj_selected == 1)
 		change_color(key, e->hit_obj);

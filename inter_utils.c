@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   inter_utils.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gphilips <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/12/22 16:13:36 by gphilips          #+#    #+#             */
+/*   Updated: 2017/12/22 16:14:25 by gphilips         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "rtv1.h"
 
-double		solver(t_solver *s)
+double			solver(t_solver *s)
 {
 	s->deter = s->b * s->b - 4.0 * s->a * s->c;
 	if (s->deter < MIN)
@@ -15,7 +27,7 @@ double		solver(t_solver *s)
 		return (-1.0);
 }
 
-static void	get_hit_point_normal(t_hit *hit_point, t_obj *obj, t_ray *ray)
+static void		get_hit_point_normal(t_hit *hit_point, t_obj *obj, t_ray *ray)
 {
 	double		m;
 	t_vec		dist;
@@ -43,7 +55,7 @@ static void	get_hit_point_normal(t_hit *hit_point, t_obj *obj, t_ray *ray)
 	}
 }
 
-void		get_hit_point_info(t_hit *hit_point, t_obj *obj, t_ray *ray)
+void			get_hit_point_info(t_hit *hit_point, t_obj *obj, t_ray *ray)
 {
 	hit_point->ray_origin = ray;
 	hit_point->point.x = ray->origin.x + hit_point->t * ray->dir.x;

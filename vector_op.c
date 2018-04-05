@@ -6,7 +6,7 @@
 /*   By: gphilips <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 17:09:39 by gphilips          #+#    #+#             */
-/*   Updated: 2017/11/29 17:09:41 by gphilips         ###   ########.fr       */
+/*   Updated: 2017/12/22 16:15:27 by gphilips         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,7 @@ t_vec	vec_negative(t_vec *v)
 	return (n);
 }
 
-
-t_vec 	vec_cross(t_vec *v1, t_vec *v2)
+t_vec	vec_cross(t_vec *v1, t_vec *v2)
 {
 	t_vec	v;
 

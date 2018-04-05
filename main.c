@@ -6,7 +6,7 @@
 /*   By: gphilips <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 17:09:31 by gphilips          #+#    #+#             */
-/*   Updated: 2017/12/09 14:55:09 by gphilips         ###   ########.fr       */
+/*   Updated: 2017/12/22 16:08:39 by gphilips         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void		*init_env(t_env *e)
 	return (0);
 }
 
-void		put_image(t_env *e)
+void			put_image(t_env *e)
 {
 	int		w;
 	int		h;

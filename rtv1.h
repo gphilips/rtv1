@@ -6,7 +6,7 @@
 /*   By: gphilips <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 17:10:40 by gphilips          #+#    #+#             */
-/*   Updated: 2017/12/09 15:52:53 by gphilips         ###   ########.fr       */
+/*   Updated: 2017/12/22 16:11:33 by gphilips         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,6 @@ typedef struct		s_obj
 	int				current;
 }					t_obj;
 
-
 typedef struct		s_mlx
 {
 	void			*mlx;
@@ -159,7 +158,7 @@ typedef struct		s_env
 	double			p;
 	t_obj			*hit_obj;
 	int				is_obj_selected;
-	int 			zoom;
+	int				zoom;
 	t_obj			*light[MAX_LIGHT];
 	int				l;
 	int				total_light;
@@ -223,7 +222,8 @@ double				plane_inter(t_obj *obj, t_ray *ray);
 **	inter_utils.c
 */
 double				solver(t_solver *s);
-void				get_hit_point_info(t_hit *hit_point, t_obj *obj, t_ray *ray);
+void				get_hit_point_info(t_hit *hit_point, t_obj *obj,
+					t_ray *ray);
 
 /*
 **	color.c
@@ -249,7 +249,7 @@ void				normalize(t_vec *v1);
 **	hook.c
 */
 int					key_hook(int key, t_env *e);
-int 				mouse_hook(int button, int x, int y, t_env *e);
+int					mouse_hook(int button, int x, int y, t_env *e);
 int					quit(t_env *e);
 
 /*
